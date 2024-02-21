@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
+//Difficulty resolving mistakes in mightymeld app
 export function Tile({ content: Content, flip, state }) {
   switch (state) {
     case "start":
@@ -7,22 +8,23 @@ export function Tile({ content: Content, flip, state }) {
         <Box
           onClick={flip}
           display="inline-block"
-          width={8}
-          height={8}
           textAlign="center"
-          bg="gray.500"
-        >
-          ?
-        </Box>
+          bg="#66c3a7"
+          width="70px"
+          height="70px"
+          borderRadius="5px"
+        ></Box>
       );
     case "flipped":
       return (
         <Box
           display="inline-block"
-          width={8}
-          height={8}
           textAlign="center"
           bg="yellow.500"
+          height="70px"
+          width="70px"
+          bgColor="#1cbe8e93"
+          borderRadius="5px"
         >
           <Content
             style={{
@@ -30,6 +32,7 @@ export function Tile({ content: Content, flip, state }) {
               width: "100%",
               height: "100%",
               verticalAlign: "top",
+              color: "#ffffff",
             }}
           />
         </Box>
@@ -38,10 +41,10 @@ export function Tile({ content: Content, flip, state }) {
       return (
         <Box
           display="inline-block"
-          width={8}
-          height={8}
           textAlign="center"
           color="gray.300"
+          width="60px"
+          height="60px"
         >
           <Content
             style={{
@@ -49,6 +52,8 @@ export function Tile({ content: Content, flip, state }) {
               width: "100%",
               height: "100%",
               verticalAlign: "top",
+              color: '"#fff"',
+              opacity: 0.7,
             }}
           />
         </Box>

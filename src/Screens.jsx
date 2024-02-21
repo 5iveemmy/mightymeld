@@ -1,7 +1,7 @@
 import { useState } from "react";
 import confetti from "canvas-confetti";
 import * as icons from "react-icons/gi";
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text, HStack } from "@chakra-ui/react";
 import { Tile } from "./Tile";
 
 export const possibleTileContents = [
@@ -133,12 +133,50 @@ export function PlayScreen({ end }) {
 
   return (
     <>
-      <Box>
-        {getTiles(6).map((tile, i) => (
-          <Tile key={i} flip={() => flip(i)} {...tile} />
-        ))}
-      </Box>
-      {tryCount}
+      <HStack
+        justifyContent="center"
+        paddingTop="20px"
+        paddingBottom="20px"
+        gap="4px"
+      >
+        <Text textAlign="center">Tries</Text>
+        <HStack
+          height="20px"
+          width="20px"
+          bgColor="#66c3a7"
+          alignItems="center"
+          borderRadius="5px"
+          justifyContent="center"
+          color="green"
+        >
+          <Text>{tryCount}</Text>
+        </HStack>
+      </HStack>
+      <Flex justifyContent="center" alignItems="center">
+        <Flex
+          bgColor="#cefff0"
+          padding="20px"
+          width="fit-content"
+          height="fit-content"
+          borderRadius="20px"
+          justifyContent="center"
+          alignItems="center"
+          gap="1.5rem"
+        >
+          <Flex
+            gap="10px"
+            flexWrap="wrap"
+            justifyContent="center"
+            alignItems="center"
+            maxWidth="320px"
+            width="100%"
+          >
+            {getTiles(16).map((tile, i) => (
+              <Tile key={i} flip={() => flip(i)} {...tile} bgColor="#cefff0" />
+            ))}
+          </Flex>
+        </Flex>
+      </Flex>
     </>
   );
 }
